@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <h1>{{ $store.state.name + '' + $store.state.age }}</h1>
+    <button @click="$store.commit('changeName', 'qianlon')">changename</button>
+    <button @click="$store.dispatch('changeNameAsync', 'actions 按钮')">
+      actions 按钮
+    </button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+};
 </script>
 
 <style>

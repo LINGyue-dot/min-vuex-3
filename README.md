@@ -1,24 +1,11 @@
-# min-vue-3
+# min-vuex
 
-## Project setup
-```
-yarn install
-```
+## 前置
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+* 如何进行数据保存的
+* 如何全局注入
+* 为什么 commit 不能是异步
+* 整体的执行流程是如何的
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
