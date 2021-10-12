@@ -2,7 +2,7 @@
  * @Author: qianlong github:https://github.com/LINGyue-dot
  * @Date: 2021-10-12 10:21:35
  * @LastEditors: qianlong github:https://github.com/LINGyue-dot
- * @LastEditTime: 2021-10-12 10:53:26
+ * @LastEditTime: 2021-10-12 11:36:53
  * @Description:
  */
 let _Vue = null;
@@ -74,6 +74,62 @@ function install(Vue) {
     },
   });
 }
+
+// 返回
+const mapState = (params) => {
+  if (!Array.isArray(params)) {
+    return;
+  }
+  let obj = {};
+  params.forEach((item) => {
+    obj[item] = function() {
+      return this.$store.state[item];
+    };
+  });
+  return obj;
+};
+
+// 返回函数 arr
+const mapMutations = (params) => {
+  if (!Array.isArray(params)) {
+    return;
+  }
+  let obj = {};
+  params.forEach((item) => {
+    obj[item] = function() {
+      return this.$store.commit(item, params);
+    };
+  });
+  return obj;
+};
+
+const mapActions = (params) => {
+  if (!Array.isArray(params)) {
+    return;
+  }
+  let obj = {};
+  params.forEach((item) => {
+    obj[item] = function() {
+      return this.$store.dispatch(item, params);
+    };
+  });
+  return obj;
+};
+
+const mapGetters = (params) => {
+  if (!Array.isArray(params)) {
+    return;
+  }
+  let obj = {};
+  params.forEach((item) => {
+    obj[item] = function() {
+      return this.$store.getters[item];
+    };
+  });
+  return obj;
+};
+
+export { mapState, mapMutations, mapActions, mapGetters };
 
 export default {
   install,

@@ -6,12 +6,20 @@
     <button @click="$store.dispatch('changeNameAsync', 'actions 按钮')">
       actions 按钮
     </button>
+    {{ age }}
   </div>
 </template>
 
 <script>
+import { mapState } from './min-vuex/index';
 export default {
   name: 'App',
+  computed: {
+    ...mapState(['age']),
+  },
+  mounted() {
+    console.log(this.$options); // 这里的 $options 和 vue plugin 的 $options 不同
+  },
 };
 </script>
 
